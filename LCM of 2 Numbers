@@ -1,0 +1,33 @@
+#include <stdio.h>
+int lcm(int a, int b)
+{
+    static int num = 0;
+    num = num + b;
+    if (num % a == 0 && num % b == 0)
+    {
+        return num;
+    }
+    else
+    {
+        return lcm(a,b);
+    }
+    return num;
+}
+int main()
+{
+    int a, b, result;
+    printf("Input First Number: ");
+    scanf("%d",&a);
+    printf("Input Second Number: ");
+    scanf("%d",&b);
+    if(a > b)
+    {
+        result = lcm(b,a);
+    }
+    else
+    {
+        result = lcm(a,b);
+    }
+    printf("The LCM of %d and %d is %d\n", a, b, result);
+    return 0;
+}
